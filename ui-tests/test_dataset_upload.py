@@ -19,3 +19,8 @@ def test_dataset_upload(auth_page: Page):
 
     # Confirm attach
     auth_page.get_by_role("button", name="Attach", exact=True).click()
+
+    # Assert file attachment success message
+    expect(
+        auth_page.get_by_text("File(s) attached successfully.", exact=True)
+    ).to_be_visible(timeout=10000)
